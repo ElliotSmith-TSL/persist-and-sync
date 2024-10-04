@@ -141,7 +141,6 @@ function saveAndSync({ newState, prevState, options }: SaveAndSyncProps) {
 
 	const stateToStore: Record<string, any> = {};
 	keysToPersistAndSync
-		.filter(key => prevState[key] !== newState[key]) // using only shallow equality
 		.forEach(key => (stateToStore[key] = newState[key]));
 	if (Object.keys(stateToStore).length) setItem(options, JSON.stringify(stateToStore));
 }
